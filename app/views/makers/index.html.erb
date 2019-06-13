@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>メーカー</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +13,7 @@
   <tbody>
     <% @makers.each do |maker| %>
       <tr>
+        <td><%= maker.name %></td>
         <td><%= link_to 'Show', maker %></td>
         <td><%= link_to 'Edit', edit_maker_path(maker) %></td>
         <td><%= link_to 'Del', maker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
