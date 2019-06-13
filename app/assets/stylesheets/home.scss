@@ -11,3 +11,14 @@ body{
         margin: 1% auto;
         display:flex;
     }
+
+.color-list{
+        display: flex;
+        flex-wrap: wrap;
+        width: 1000px;
+        margin: 0 auto;
+        
+        .color-item{
+            width: 200px;
+        }
+    }

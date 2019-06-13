@@ -6,3 +6,17 @@
 
 <%=link_to 'Add Color(Only Adiministraitor)', colors_path %>
 <%=link_to 'Home', home_index_path %>
+
+<div class="color-list">
+    <% @colors.each do |color| %>
+        <div class="color-item">
+            <div style="width:200px;height:200px;background-color:#<%= color.code %>;"></div>
+            <div>
+                <p class="name-text"><%= color.name %></p>
+                <p class="maker-text"><%= color.maker_id %></p>
+            </div>
+            <div>
+            </div>
+        </div>
+    <% end %>
+</div>
