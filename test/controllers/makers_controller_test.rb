@@ -17,7 +17,7 @@ class MakersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create maker" do
     assert_difference('Maker.count') do
-      post makers_url, params: { maker: {  } }
+      post makers_url, params: { maker: { name: @maker.name } }
     end
 
     assert_redirected_to maker_url(Maker.last)
@@ -34,7 +34,7 @@ class MakersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update maker" do
-    patch maker_url(@maker), params: { maker: {  } }
+    patch maker_url(@maker), params: { maker: { name: @maker.name } }
     assert_redirected_to maker_url(@maker)
   end
 

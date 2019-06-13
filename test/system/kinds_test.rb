@@ -14,6 +14,7 @@ class KindsTest < ApplicationSystemTestCase
     visit kinds_url
     click_on "New Kind"
 
+    fill_in "Name", with: @kind.name
     click_on "Create Kind"
 
     assert_text "Kind was successfully created"
@@ -24,6 +25,7 @@ class KindsTest < ApplicationSystemTestCase
     visit kinds_url
     click_on "Edit", match: :first
 
+    fill_in "Name", with: @kind.name
     click_on "Update Kind"
 
     assert_text "Kind was successfully updated"

@@ -14,6 +14,7 @@ class MakersTest < ApplicationSystemTestCase
     visit makers_url
     click_on "New Maker"
 
+    fill_in "Name", with: @maker.name
     click_on "Create Maker"
 
     assert_text "Maker was successfully created"
@@ -24,6 +25,7 @@ class MakersTest < ApplicationSystemTestCase
     visit makers_url
     click_on "Edit", match: :first
 
+    fill_in "Name", with: @maker.name
     click_on "Update Maker"
 
     assert_text "Maker was successfully updated"
