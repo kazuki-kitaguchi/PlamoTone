@@ -23,12 +23,12 @@
 
   <div class="field">
     <%= form.label :kind_id %>
-    <%= form.number_field :kind_id %>
+    <%= form.collection_select :kind_id,Kind.all,:id,:name %>
   </div>
 
   <div class="field">
     <%= form.label :maker_id %>
-    <%= form.number_field :maker_id %>
+    <%= form.collection_select :maker_id,Maker.all,:id,:name %>
   </div>
 
   <div class="actions">
