@@ -14,7 +14,7 @@
       <tr>
         <td><%= link_to 'Show', maker %></td>
         <td><%= link_to 'Edit', edit_maker_path(maker) %></td>
-        <td><%= link_to 'Destroy', maker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Del', maker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -23,3 +23,4 @@
 <br>
 
 <%= link_to 'New Maker', new_maker_path %>
+<%=link_to 'Home', home_index_path %>
