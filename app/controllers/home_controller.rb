@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @colors = Color.all
+    @colors = Color.page(params[:page])
   end
 
   def search
