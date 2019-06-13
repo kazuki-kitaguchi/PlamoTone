@@ -22,7 +22,7 @@
         <td><%= color.maker_id %></td>
         <td><%= link_to 'Show', color %></td>
         <td><%= link_to 'Edit', edit_color_path(color) %></td>
-        <td><%= link_to 'Destroy', color, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Del', color, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -31,4 +31,5 @@
 <br>
 
 <%= link_to 'New Color', new_color_path %>
+<%= link_to 'Add Maker', new_maker_path %>
 <%=link_to 'Home', home_index_path %>
