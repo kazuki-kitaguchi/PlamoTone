@@ -23,12 +23,12 @@
 <%# 登録カラーリスト %>
 <%= paginate @colors -%>
 <div class="color-list">
-    <% @colors.each do |color| %>
+    <% @colors.zip(@maker) do |color,maker| %>
         <div class="color-item">
             <div style="width:200px;height:200px;background-color:#<%= color.code %>;"></div>
             <div>
                 <p class="name-text"><%= color.name %></p>
-                <p class="maker-text"><%= color.maker_id %></p>
+                <p class="maker-text"><%= maker.name %></p>
             </div>
             <div>
                 <%=link_to 'Left',home_index_path(:page => @colors.current_page,:param_l => color.code,:param_r => @right_chart) %>
