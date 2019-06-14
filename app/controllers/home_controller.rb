@@ -1,10 +1,10 @@
 class HomeController < ApplicationController
   def index
     @search = Color.ransack(params[:q])
-    @colors = Color.page(params[:page])
+    @colors = Color.page(params[:page]).per(5)
       
     # 以下の抽出でmaker_idに対応したメーカー名を取得
-    @maker = Maker.joins('INNER JOIN colors ON makers.id = colors.maker_id').select("makers.name")
+    @maker = Maker.page(params[:page]).per(5).joins('INNER JOIN colors ON makers.id = colors.maker_id').select("makers.name")
     view
   end
 
