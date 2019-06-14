@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Code</th>
+      <th>Color</th>
       <th>Kind</th>
       <th>Maker</th>
       <th colspan="3"></th>
@@ -17,7 +17,7 @@
     <% @colors.each do |color| %>
       <tr>
         <td><%= color.name %></td>
-        <td><%= color.code %></td>
+        <td style="background-color:#<%= color.code %>;"></td>
         <td><%= color.kind_id %></td>
         <td><%= color.maker_id %></td>
         <td><%= link_to 'Show', color %></td>
