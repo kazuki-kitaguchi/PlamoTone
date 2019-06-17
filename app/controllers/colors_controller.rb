@@ -5,13 +5,13 @@ class ColorsController < ApplicationController
   # GET /colors.json
   def index
     @colors = Color.all
-    @makers = Maker.joins(:color).select(:maker_name)
+    @makers = Maker.joins(:color).select(:color_name,:maker_name)
   end
 
   # GET /colors/1
   # GET /colors/1.json
   def show
-    # @maker = Maker.joins(:color).select(:maker_name).find(params[:id])
+    @maker = Color.joins(:maker).select(:color_name,:maker_name).find(params[:id])
   end
 
   # GET /colors/new
