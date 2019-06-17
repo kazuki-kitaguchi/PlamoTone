@@ -14,7 +14,7 @@ class HomeController < ApplicationController
   def search
     @search = Color.ransack(params[:q])
     @colors = @search.result.page(params[:page]).per(PER)
-    @makers = Maker.page(params[:page]).per(PER).joins(:color).select(:color_name,:maker_name)
+    @makers = @colors.joins(:maker).select(:color_name,:maker_name)
     preview
   end
   
