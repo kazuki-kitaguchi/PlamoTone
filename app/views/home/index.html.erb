@@ -8,9 +8,10 @@
 <%# 検索フォーム%>
 <%= search_form_for @search, url: home_search_path do |f| %>
     <div>
-      <%= f.search_field :name_cont, placeholder:'塗料名で検索' %>
-      <%= f.hidden_field :param_l, value: @left_chart %>
-      <%= f.hidden_field :param_r, value: @right_chart %>
+        <%= f.search_field :name_cont, placeholder:'塗料名で検索' %>
+        <%= f.collection_select :maker_id,Maker.all,:id,:name, :include_blank => '指定なし' %>
+        <%= f.hidden_field :param_l, value: @left_chart %>
+        <%= f.hidden_field :param_r, value: @right_chart %>
     </div>
     <div>
         <%= f.submit "Search" %>
@@ -23,12 +24,12 @@
 <%# 登録カラーリスト %>
 <%= paginate @colors -%>
 <div class="color-list">
-    <% @colors.zip(@maker) do |color,maker| %>
+    <% @colors.each do |color,maker| %>
         <div class="color-item">
             <div style="width:200px;height:200px;background-color:#<%= color.code %>;"></div>
             <div>
                 <p class="name-text"><%= color.name %></p>
-                <p class="maker-text"><%= maker.name %></p>
+                <p class="maker-text"><%= color.maker.name %></p>
             </div>
             <div>
                 <%=link_to 'Left',home_index_path(:page => @colors.current_page,:param_l => color.code,:param_r => @right_chart) %>

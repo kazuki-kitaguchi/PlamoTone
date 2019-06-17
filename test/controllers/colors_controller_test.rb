@@ -17,7 +17,7 @@ class ColorsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create color" do
     assert_difference('Color.count') do
-      post colors_url, params: { color: { code: @color.code, kind_id: @color.kind_id, maker_id: @color.maker_id, name: @color.name } }
+      post colors_url, params: { color: { code: @color.code, kind_id: @color.kind, maker_id: @color.maker, name: @color.name } }
     end
 
     assert_redirected_to color_url(Color.last)
@@ -34,7 +34,7 @@ class ColorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update color" do
-    patch color_url(@color), params: { color: { code: @color.code, kind_id: @color.kind_id, maker_id: @color.maker_id, name: @color.name } }
+    patch color_url(@color), params: { color: { code: @color.code, kind_id: @color.kind, maker_id: @color.maker, name: @color.name } }
     assert_redirected_to color_url(@color)
   end
 

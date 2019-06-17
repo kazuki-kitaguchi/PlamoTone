@@ -19,8 +19,8 @@
       <tr>
         <td><%= color.name %></td>
         <td style="background-color:#<%= color.code %>;"></td>
-        <td><%= color.kind_id %></td>
-        <td><%= color.maker_id %></td>
+        <td><%= color.kind %></td>
+        <td><%= color.maker %></td>
         <td><%= link_to 'Show', color %></td>
         <td><%= link_to 'Edit', edit_color_path(color) %></td>
         <td><%= link_to 'Del', color, method: :delete, data: { confirm: 'Are you sure?' } %></td>

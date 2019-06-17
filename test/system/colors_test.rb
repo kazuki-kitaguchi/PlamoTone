@@ -15,8 +15,8 @@ class ColorsTest < ApplicationSystemTestCase
     click_on "New Color"
 
     fill_in "Code", with: @color.code
-    fill_in "Kind", with: @color.kind_id
-    fill_in "Maker", with: @color.maker_id
+    fill_in "Kind", with: @color.kind
+    fill_in "Maker", with: @color.maker
     fill_in "Name", with: @color.name
     click_on "Create Color"
 
@@ -29,8 +29,8 @@ class ColorsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Code", with: @color.code
-    fill_in "Kind", with: @color.kind_id
-    fill_in "Maker", with: @color.maker_id
+    fill_in "Kind", with: @color.kind
+    fill_in "Maker", with: @color.maker
     fill_in "Name", with: @color.name
     click_on "Update Color"
 
