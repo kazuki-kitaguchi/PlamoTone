@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :makers
+  resources :colors
   get 'home/index'
   get 'home/search'
   root 'home#index'
