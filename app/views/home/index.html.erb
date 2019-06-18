@@ -1,3 +1,6 @@
+<% if user_signed_in? %>
+    <%= current_user.email %>
+<% end %>
 <h1>PlamoTone</h1>
 <%# カラー比較部分 %>
 <div id="chart">
@@ -18,8 +21,20 @@
     </div>
 <% end %>
 
-<%=link_to 'Add Color(Only Adiministraitor)', colors_path %>
+<% if user_signed_in? %>
+    <% if current_user.admin == true %>
+        <%=link_to 'Add Color(Only Adiministraitor)', colors_path %>
+    <% end %>
+<% end %>
+
 <%=link_to 'Home', home_index_path %>
+
+<% if user_signed_in? %>
+    <%= link_to 'Log out', destroy_user_session_path, :method => :delete %>
+<% else %>
+    <%=link_to 'Sign in', new_user_registration_path %>
+    <%=link_to 'Log in', new_user_session_path %>
+<% end %>
 
 <%# 登録カラーリスト %>
 <%= paginate @colors -%>
