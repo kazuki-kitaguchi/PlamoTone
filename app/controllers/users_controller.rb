@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   def index
-    @users = User.all
+    if user_signed_in? && current_user.admin == true
+      @users = User.all
+    else
+      redirect_to home_index_path
+    end
   end
 
   def show
