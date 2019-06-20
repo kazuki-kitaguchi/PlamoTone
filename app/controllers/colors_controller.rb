@@ -12,7 +12,7 @@ class ColorsController < ApplicationController
   # GET /colors/1
   # GET /colors/1.json
   def show
-    @maker = Color.joins(:maker).select(:color_name,:maker_name).find(params[:id])
+    @maker = Color.find(params[:id]).maker
   end
 
   # GET /colors/new
