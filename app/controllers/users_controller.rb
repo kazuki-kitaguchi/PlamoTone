@@ -10,5 +10,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @likes = Like.joins(:color).where(user_id: params[:id]).select(:color_id,:color_name,:color_code)
   end
 end

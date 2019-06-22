@@ -1,3 +1,13 @@
 <h1><%= @user.email %></h1>
 <p>MyColor List</p>
 <%# パレットリスト一覧を表示する %>
+<div class="color-list">
+    <% @likes.each do |like| %>
+        <div>
+            <div style="width: 100px; height: 100px; background-color:#<%= like.color_code %>;"></div>
+            <div>
+                <%= like.color_name %>
+            </div>
+        </div>
+    <% end %>
+</div>
