@@ -15,5 +15,12 @@
   <%= @maker.maker_name %>
 </p>
 
-<%= link_to 'Edit', edit_color_path(@color) %> |
-<%= link_to 'Back', colors_path %>
+<%= link_to 'Edit', edit_color_path(@color) %>
+<%if user_signed_in? %>
+  <% if current_user.admin == true  %>
+    <%= link_to 'Back List', colors_path %>
+    <%= link_to 'Back MyColor', user_path(current_user.id) %>
+  <% else %>
+    <%= link_to 'Back MyColor', user_path(current_user.id) %>
+  <% end %>
+<% end %>
