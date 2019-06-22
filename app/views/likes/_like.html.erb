@@ -1,0 +1,11 @@
+<% if user_signed_in? %>
+    <% if color.like_user(current_user.id) %>
+        <%= button_to color_like_path(color, color_id: color.id), method: :delete, id: "like-button-#{color.id}", remote: true do %>
+            <div class = "like-icon">❤</div>
+        <% end %>
+    <% else %>
+        <%= button_to color_likes_path(color), id: "like-button-#{color.id}", remote: true do %>
+            <div class = "like-icon">♡</div>
+        <% end %>
+    <% end %>
+<% end %>

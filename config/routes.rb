@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, :only => [:index, :show]
   resources :makers
-  resources :colors
+  resources :colors  do
+    resources :likes, only: [:create, :destroy]
+  end
   get 'home/index'
   get 'home/search'
   root 'home#index'

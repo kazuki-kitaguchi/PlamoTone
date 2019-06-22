@@ -50,6 +50,10 @@
                 <%= link_to 'Left',home_index_path(:page => @colors.current_page,:param_l => color.color_code,:param_r => @right_chart) %>
                 <%= link_to 'Right',home_index_path(:page => @colors.current_page,:param_l => @left_chart,:param_r => color.color_code) %>
             </div>
+            <%# お気に入り登録・解除ボタン %>
+            <div id="like-of-<%= color.id %>">
+             <%= render partial: 'likes/like', locals: { color: color } %>
+            </div>
         </div>
     <% end %>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_18_092000) do
+ActiveRecord::Schema.define(version: 2019_06_21_082617) do
 
   create_table "colors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "color_name"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2019_06_18_092000) do
     t.datetime "updated_at", null: false
     t.bigint "maker_id"
     t.index ["maker_id"], name: "index_colors_on_maker_id"
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "color_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["color_id"], name: "index_likes_on_color_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "makers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -41,4 +50,6 @@ ActiveRecord::Schema.define(version: 2019_06_18_092000) do
   end
 
   add_foreign_key "colors", "makers"
+  add_foreign_key "likes", "colors"
+  add_foreign_key "likes", "users"
 end
