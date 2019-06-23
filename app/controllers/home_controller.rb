@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   def index
     @search = Color.ransack(params[:q])
     @colors = Color.page(params[:page]).per(PER)
-    @makers = Maker.page(params[:page]).per(PER).joins(:color).select(:color_name,:maker_name)
+    @makers = Maker.page(params[:page]).per(PER).joins(:colors).select(:color_name,:maker_name)
     view
   end
 

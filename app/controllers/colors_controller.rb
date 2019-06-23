@@ -6,7 +6,7 @@ class ColorsController < ApplicationController
   # GET /colors.json
   def index
     @colors = Color.all
-    @makers = Maker.joins(:color).select(:color_name,:maker_name)
+    @makers = Maker.joins(:colors).select(:color_name,:maker_name)
   end
 
   # GET /colors/1
