@@ -1,0 +1,32 @@
+<div>
+    <% if user_signed_in? %>
+        <% if current_user.admin == true %>
+            <%=link_to 'Add Color(Only Adiministraitor)', colors_path %>
+        <% end %>
+    <% end %>
+</div>
+
+<div class="color-list">
+    <% @colors.zip(@makers) do |color,maker| %>
+        <div class="color-item">
+            <div style="width:200px;height:200px;background-color:#<%= color.color_code %>;">
+                <%# お気に入り登録・解除ボタン %>
+                <div id="like-of-<%= color.id %>" class="text-left">
+                 <%= render partial: 'likes/like', locals: { color: color } %>
+                </div>    
+            </div>
+            <div>
+                <p class="name-text"><%= color.color_name %></p>
+                <p class="maker-text"><%= maker.maker_name %></p>
+            </div>
+            <div>
+                <%= link_to 'Left',home_index_path(:page => @colors.current_page,:param_l => color.color_code,:param_r => @right_chart) %>
+                <%= link_to 'Right',home_index_path(:page => @colors.current_page,:param_l => @left_chart,:param_r => color.color_code) %>
+            </div>
+            
+        </div>
+    <% end %>
+</div>
+<div class="d-inline-block">
+    <%= paginate @colors -%>    
+</div>

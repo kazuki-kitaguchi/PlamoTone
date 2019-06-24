@@ -15,3 +15,98 @@
  */
 
 @import "bootstrap"; 
+
+input,
+.container-fluid{
+    padding: 0;
+    margin: 0;
+}
+
+// ヘッダ
+#header{
+    // 共通
+    padding: 0;
+    margin: 0;
+    background-color: #24292E;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    height: 60px;
+    
+    a,
+    a:visited,
+    a:hover{
+        color: #FFF;
+        vertical-align: -webkit-baseline-middle;
+        text-decoration: none;
+    }
+    
+    input,
+    select{
+        font-size: 12px;
+        vertical-align: -webkit-baseline-middle;
+    }
+    
+    .header-button{
+        width: 100px;
+        height: 30px;
+        background-color: #33CC56;
+        color: #FFF;
+        border: none;
+        border-radius: 5px;
+        vertical-align: -webkit-baseline-middle;
+    }
+    
+    .header-button:hover{
+        opacity: 0.5;
+    }
+    
+    .row{
+        width: 100%;
+        // サイトロゴ
+        .logo{
+            
+        }
+        // 検索フォーム
+        .search{
+            vertical-align: -webkit-baseline-middle;
+            input{
+                border-radius: 5px;
+            }
+            #q_color_name_cont{
+                width: 200px;
+                height: 30px;
+            }
+            #q_maker_id_eq{
+                height: 30px;
+            }
+        }
+        
+        // メニュー
+        #nav{
+             ul{
+                padding: 0;
+                margin: 0;
+                li{
+                    display: inline-block;
+                }
+            }   
+        }
+    }
+}
+
+// kaminariのレイアウト変更
+.page-item.active .page-link{
+    z-index: 1;
+    color: #fff;
+    background-color: #33CC56;
+    border-color: #33CC56;
+}
+
+.page-link:hover {
+    z-index: 2;
+    color: #33CC56;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}

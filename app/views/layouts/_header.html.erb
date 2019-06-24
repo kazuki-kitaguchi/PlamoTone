@@ -1,0 +1,39 @@
+<section id="header" class="d-flex">
+<div class="row">
+    <%# サイト名 %>
+    <div class="col-2 logo align-self-center text-left">
+        <%=link_to 'PlamoTone', home_index_path, class: "header-button" %>  
+    </div>
+    <%# 検索フォーム%>
+    <div class="col-6 search align-self-center text-left">
+        <%= search_form_for @search, url: home_search_path do |f| %>
+            <%= f.search_field :color_name_cont, placeholder:'塗料名で検索' %>
+            <%= f.collection_select :maker_id_eq, Maker.all, :id,:maker_name, :include_blank => '指定なし' %>
+            <%= f.hidden_field :param_l, value: @left_chart %>
+            <%= f.hidden_field :param_r, value: @right_chart %>
+            <%= f.submit "Search", class: "header-button" %>
+        <% end %>
+    </div>
+    <%# メニュー %>
+    <div id="nav" class="col-4 align-self-center">
+        <ul class="text-right">
+            <% if user_signed_in? %>
+                <li>
+                    <%= link_to current_user.email, user_path(current_user.id) %>
+                </li>
+                <li>
+                    <div class="header-button text-center">
+                        <%= link_to 'ログアウト', destroy_user_session_path, :method => :delete %>
+                    </div>    
+                </li>
+            <% else %>
+                <li>
+                    <div class="header-button text-center">
+                        <%= link_to '登録/ログイン', new_user_session_path %>
+                    </div>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+</div>
+</section>

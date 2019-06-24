@@ -1,41 +1,5 @@
-<h1>PlamoTone</h1>
 <%# カラー比較部分 %>
-<div id="chart">
-    <div id="left-chart" style="width:300px;height:300px;background-color:#<%= @left_chart %>;"></div>
-    <div id="right-chart" style="width:300px;height:300px;background-color:#<%= @right_chart %>;"></div>
-</div>
-
-<%# 検索フォーム%>
-<%= search_form_for @search, url: home_search_path do |f| %>
-    <div>
-        <%= f.search_field :color_name_cont, placeholder:'塗料名で検索' %>
-        <%= f.collection_select :maker_id_eq, Maker.all, :id,:maker_name, :include_blank => '指定なし' %>
-        <%= f.hidden_field :param_l, value: @left_chart %>
-        <%= f.hidden_field :param_r, value: @right_chart %>
-    </div>
-    <div>
-        <%= f.submit "Search" %>
-    </div>
-<% end %>
-
-<%=link_to 'Add Color(Only Adiministraitor)', colors_path %>
-<%=link_to 'Home', home_index_path %>
+<%= render 'layouts/chart' %>
 
 <%# 登録カラーリスト %>
-<%= paginate @colors -%>
-<div class="color-list">
-    <% @colors.zip(@makers) do |color,maker| %>
-        <div class="color-item">
-            <div style="width:200px;height:200px;background-color:#<%= color.color_code %>;"></div>
-            <div>
-                <p class="name-text"><%= color.color_name %></p>
-                <p class="maker-text"><%= maker.maker_name %></p>
-            </div>
-            <div>
-                <%= link_to 'Left',home_index_path(:page => @colors.current_page,:param_l => color.color_code,:param_r => @right_chart) %>
-                <%= link_to 'Right',home_index_path(:page => @colors.current_page,:param_l => @left_chart,:param_r => color.color_code) %>
-            </div>
-        </div>
-    <% end %>
-</div>
-<%= paginate @colors -%>
+<%= render 'layouts/colorlists' %>
