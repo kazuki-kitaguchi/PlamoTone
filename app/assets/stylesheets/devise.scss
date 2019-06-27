@@ -1,0 +1,30 @@
+.login-form{
+	border: 1px solid #666;
+	width: 300px;
+	margin: 30px auto;
+	padding: 30px 0;
+	input{
+	margin: 10px;
+	border: none;
+	border-bottom: 1px solid #aaa;
+	}
+	.submit{
+		border: none;
+		background-color: #33CC56;
+		color: #fff;
+		width: 100px;
+		height: 30px;
+		border-radius: 5px;
+		}
+	.field{
+		margin: 10px;
+	}
+	a{
+		font-size: 10px;
+	}
+}
+
+.notice,
+.alert{
+	color: #f00;
+}
