@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  PER = 5
+  PER = 10
   def index
     @colors = Color.page(params[:page]).per(PER)
     @makers = Maker.page(params[:page]).per(PER).joins(:colors).select(:color_name,:maker_name)

@@ -1,3 +1,37 @@
 // Place all the styles related to the colors controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+table{
+	margin: 0 auto;
+}
+
+
+.color-reg-form{
+	border: 1px solid #666;
+	width: 300px;
+	margin: 30px auto;
+	padding: 30px 0;
+	input{
+		margin: 10px;
+		border: none;
+		border-bottom: 1px solid #aaa;
+	}
+	select{
+		font-size: 11px;
+	}
+	.submit{
+		border: none;
+		background-color: #33CC56;
+		color: #fff;
+		width: 100px;
+		height: 30px;
+		border-radius: 5px;
+		}
+	.field{
+		margin: 10px;
+	}
+	a{
+		font-size: 10px;
+	}
+}

@@ -10,7 +10,7 @@
     <div class="color-list">
         <% @colors.zip(@makers) do |color,maker| %>
             <div class="color-item">
-                <div style="width:200px;height:200px;background-color:#<%= color.color_code %>;">
+                <div style="width:100px;height:100px;background-color:#<%= color.color_code %>;">
                     <%# お気に入り登録・解除ボタン %>
                     <div id="like-of-<%= color.id %>" class="text-left">
                      <%= render partial: 'likes/like', locals: { color: color } %>

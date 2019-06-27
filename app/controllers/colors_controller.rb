@@ -4,11 +4,12 @@ class ColorsController < ApplicationController
 
   # GET /colors
   # GET /colors.json
-  def index
-    @colors = Color.all
-    @makers = Maker.joins(:colors).select(:color_name,:maker_name)
-  end
 
+  PER = 20
+  def index
+    @colors = Color.page(params[:page]).per(PER)
+    @makers = Maker.page(params[:page]).per(PER).joins(:colors).select(:color_name,:maker_name)
+  end
   # GET /colors/1
   # GET /colors/1.json
   def show
