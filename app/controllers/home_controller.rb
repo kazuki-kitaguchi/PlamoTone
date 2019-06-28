@@ -9,9 +9,14 @@ class HomeController < ApplicationController
   def search
     @colors = @search.result.page(params[:page]).per(PER)
     @makers = @colors.joins(:maker).select(:color_name,:maker_name)
+    if @colors.total_count == 0
+      @message = '検索した結果、見つかりませんでした。'
+    else
+      @message =  nil
+    end
     preview
   end
-  
+
   private
     def view
       @left_chart = params[:param_l]

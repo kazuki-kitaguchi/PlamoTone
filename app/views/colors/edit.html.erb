@@ -1,6 +1,12 @@
-<h1>Editing Color</h1>
+<h1>カラー編集</h1>
 
 <%= render 'form', color: @color %>
 
-<%= link_to 'Show', @color %> |
-<%= link_to 'Back', colors_path %>
+<%if user_signed_in? %>
+
+  <% if current_user.admin == true %>
+    <%= link_to '登録カラー一覧へ戻る', colors_path %>
+  <% end %>
+  <%= link_to 'マイカラーへ戻る', user_path(current_user.id) %>
+
+<% end %>

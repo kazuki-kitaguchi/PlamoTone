@@ -6,6 +6,8 @@ table{
 	margin: 0 auto;
 }
 
+.color-list{
+}
 
 .color-reg-form{
 	border: 1px solid #666;
@@ -16,6 +18,7 @@ table{
 		margin: 10px;
 		border: none;
 		border-bottom: 1px solid #aaa;
+		background-color: #F6F8FA;
 	}
 	select{
 		font-size: 11px;
@@ -34,4 +37,12 @@ table{
 	a{
 		font-size: 10px;
 	}
+}
+
+.color-thumbnail{
+	margin: 0 auto;
+}
+
+.page-nav{
+	margin: 10px;
 }

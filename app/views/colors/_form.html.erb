@@ -12,23 +12,21 @@
 <div class="color-reg-form">
   <%= form_with(model: color, local: true) do |form| %>
     <div class="field">
-      <%= form.label :color_name %>
-      <%= form.text_field :color_name %>
+      <%= form.text_field :color_name, placeholder: "カラー名" %>
     </div>
 
     <div class="field">
-      <%= form.label :color_code %>
-      <%= form.text_field :color_code %>
+      <%= form.text_field :color_code, placeholder: "カラーコード" %>
     </div>
 
     <div class="field">
-      <%= form.label :maker_id %>
+      <%= form.label "メーカー" %>
       <%= form.collection_select :maker_id,Maker.all,:id,:maker_name %>
     </div>
 
     <div class="actions">
       <%= form.submit class: "submit" %>
     </div>
-<% end %>
+  <% end %>
 </div>
 

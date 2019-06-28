@@ -1,24 +1,20 @@
 <p>
-  <strong>Color name:</strong>
+  <strong>塗料名:</strong>
   <%= @color.color_name %>
 </p>
 
 <p>
-  <strong>Color code:</strong>
-  <%= @color.color_code %>
-</p>
-
-<p>
-  <strong>maker:</strong>
+  <strong>メーカー:</strong>
   <%= @maker.maker_name %>
 </p>
 
-<%= link_to 'Edit', edit_color_path(@color) %>
+<div class="color-thumbnail" style="width:200px; height:200px; background-color:#<%= @color.color_code %>;">
+</div>
+
 <%if user_signed_in? %>
-  <% if current_user.admin == true  %>
-    <%= link_to 'Back List', colors_path %>
-    <%= link_to 'Back MyColor', user_path(current_user.id) %>
-  <% else %>
-    <%= link_to 'Back MyColor', user_path(current_user.id) %>
+  <% if current_user.admin == true %>
+ 	<%= link_to '編集', edit_color_path(@color) %>
+    <%= link_to '登録カラー一覧へ戻る', colors_path %>
   <% end %>
+  <%= link_to 'マイカラーへ戻る', user_path(current_user.id) %>
 <% end %>

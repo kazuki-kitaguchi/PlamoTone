@@ -2,17 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body{
-    text-align: center;
-    background-color: #F6F8FA;
-}
-
 #chart{
-        width: 600px;
+    width: 600px;
+    height: 300px;
+    margin: 15px auto;
+    display:flex;
+    .color-pallete{
+        width: 120px;
         height: 300px;
-        margin: 0 auto;
-        display:flex;
     }
+}
 
 .color-list{
         display: flex;
@@ -24,7 +23,3 @@ body{
             width: 100px;
         }
     }
-.main-bg{
-    background-color: #ddd;
-    margin: 0;
-}

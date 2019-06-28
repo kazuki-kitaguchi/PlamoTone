@@ -1,34 +1,24 @@
-<h1>Colors</h1>
-<div class="text-center">
+<h1>登録カラー一覧</h1>
+<div class="color-list text-center">
   <table>
-    <thead>
-      <tr>
-        <th>id</th>
-        <th>Color name</th>
-        <th>Color code</th>
-        <th>Maker</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
     <tbody>
       <% @colors.zip(@makers) do |color,maker| %>
         <tr>
-          <td><%= color.id %></td>
           <td><%= color.color_name %></td>
           <td style="background-color:#<%= color.color_code %>;"></td>
           <td><%= maker.maker_name %></td>
-          <td><%= link_to 'Show', color %></td>
-          <td><%= link_to 'Edit', edit_color_path(color) %></td>
-          <td><%= link_to 'Del', color, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to '詳細', color %></td>
+          <td><%= link_to '編集', edit_color_path(color) %></td>
+          <td><%= link_to '削除', color, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
   <br>
-    <%= paginate @colors -%> 
 </div>
-<%= link_to 'New Color', new_color_path %>
-<%= link_to 'Edit Maker', makers_path %>
-<%= link_to 'Home', home_index_path %>
-<%= link_to 'Log out', destroy_user_session_path, :method => :delete %>
+<div class="page-nav">
+  <%= paginate @colors -%>
+</div>
+
+<%= link_to '新規カラー追加', new_color_path %>
+<%= link_to 'メーカー一覧', makers_path %>
