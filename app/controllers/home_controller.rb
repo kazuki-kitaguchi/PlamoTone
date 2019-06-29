@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :set_color,only: :index
   PER = 10
   def index
     @colors = Color.page(params[:page]).per(PER)
@@ -25,5 +26,12 @@ class HomeController < ApplicationController
     def preview
       @left_chart = params[:q][:param_l]
       @right_chart = params[:q][:param_r]
+    end
+    def set_color
+      if params[:sel_id] != nil
+        @color = Color.find(params[:sel_id])
+        @sel_color_id = "#sel-#{@color.id}"
+        @sel_color_code = "##{@color.color_code}"
+      end
     end
 end

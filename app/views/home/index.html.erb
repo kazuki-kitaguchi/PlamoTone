@@ -1,20 +1,24 @@
 <%# カラー比較部分 %>
 <div id="chart">
-    <div id="left-chart" class="color-pallete" style="background-color:#<%= @left_chart %>;">
-    	<%= check_box_tag :sample1 %>
-		<%= label_tag :sample1, "パレット１" %>
+    <div id="chart1" class="color-pallete">
+    	<%= check_box_tag :pallete1 %>
+		<%= label_tag :pallete1, "パレット1" %>
     </div>
-    <div id="right-chart" class="color-pallete" style="background-color:#<%= @right_chart %>;">
-    	パレット２
+    <div id="chart2" class="color-pallete">
+    	<%= check_box_tag :pallete2 %>
+		<%= label_tag :pallete2, "パレット2" %>
     </div>
-    <div class="color-pallete" style="background-color:#111">
-    	パレット３
+    <div id="chart3" class="color-pallete">
+    	<%= check_box_tag :pallete3 %>
+		<%= label_tag :pallete3, "パレット3" %>
     </div>
-    <div class="color-pallete" style="background-color:#999">
-    	パレット４
+    <div id="chart4" class="color-pallete">
+    	<%= check_box_tag :pallete4 %>
+		<%= label_tag :pallete4, "パレット4" %>
     </div>
-    <div class="color-pallete" style="background-color:#ddd">
-    	パレット５
+    <div id="chart5" class="color-pallete">
+    	<%= check_box_tag :pallete5 %>
+		<%= label_tag :pallete5, "パレット5" %>
     </div>
 </div>
 
@@ -43,8 +47,9 @@
                     <p class="maker-text"><%= maker.maker_name %></p>
                 </div>
                 <div>
-                	<%= link_to 'Left',home_index_path(:page => @colors.current_page,:param_l => color.color_code,:param_r => @right_chart) %>
-                	<%= link_to 'Right',home_index_path(:page => @colors.current_page,:param_l => @left_chart,:param_r => color.color_code) %>
+                	<%= button_to home_index_path(sel_id: color.id), id: "sel-#{color.id}", remote: true do %>
+                        <div>Select</div>
+                    <% end %>
                 </div>
             </div>
         <% end %>
