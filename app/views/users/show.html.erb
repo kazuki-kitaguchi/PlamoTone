@@ -23,21 +23,24 @@
     </div>
 </div>
 
-<div class="color-list">
+<div class="mycolor-list d-flex text-center">
     <% @likes.each do |like| %>
-        <div>
-            <div style="width: 100px; height: 100px; background-color:#<%= like.color_code %>;"></div>
-            <div>
-                <%= link_to like.color_name, color_path(like.color_id) %>
-            </div>
-            <div>
-                <%= button_to user_path(current_user.id, sel_id: like.color_id), id: "sel-#{like.color_id}", remote: true do %>
-                    <div>Select</div>
-                 <% end %>
+        <div class="mycolor-item">
+            <div class="mycolor-thumbnail d-inline-block" style="background-color:#<%= like.color_code %>;">
+                <div class="mycolor-select">
+                    <%= button_to user_path(current_user.id, sel_id: like.color_id), id: "sel-#{like.color_id}", remote: true do %>
+                        <div>Select</div>
+                    <% end %>
                 </div>
+            </div>
+            <div class="mycolor-name">
+                <%= link_to like.color_name, color_path(like.color_id) %>
+                <%= link_to '削除', user_like_path(current_user.id, color_id: like.color_id,flag_mycolor: "true"), method: :delete,remote: true, data: { confirm: 'Are you sure?' } %>
+            </div>
         </div>
     <% end %>
 </div>
+
 <% if current_user.admin == true %>
 	<%=link_to 'Add Color(Only Adiministraitor)', colors_path %>
 <% end %>

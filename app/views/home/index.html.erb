@@ -1,5 +1,5 @@
 <%# カラー比較部分 %>
-<div id="chart">
+<!-- <div id="chart">
     <div id="chart1" class="color-pallete">
         <%= check_box_tag :pallete1 %>
         <%= label_tag :pallete1, "パレット1" %>
@@ -20,7 +20,7 @@
         <%= check_box_tag :pallete5 %>
         <%= label_tag :pallete5, "パレット5" %>
     </div>
-</div>
+</div> -->
 
 <%# 登録カラーリスト %>
 <div class="main-bg">
@@ -37,11 +37,11 @@
                     <p class="name-text"><%= color.color_name %></p>
                     <p class="maker-text"><%= maker.maker_name %></p>
                 </div>
-                <div>
+                <!-- <div>
                 	<%= button_to home_index_path(sel_id: color.id), id: "sel-#{color.id}", remote: true do %>
                         <div>Select</div>
                     <% end %>
-                </div>
+                </div> -->
             </div>
         <% end %>
     </div>
