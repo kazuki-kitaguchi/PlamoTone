@@ -1,38 +1,29 @@
 <%# カラー比較部分 %>
 <div id="chart">
     <div id="chart1" class="color-pallete">
-    	<%= check_box_tag :pallete1 %>
-		<%= label_tag :pallete1, "パレット1" %>
+        <%= check_box_tag :pallete1 %>
+        <%= label_tag :pallete1, "パレット1" %>
     </div>
     <div id="chart2" class="color-pallete">
-    	<%= check_box_tag :pallete2 %>
-		<%= label_tag :pallete2, "パレット2" %>
+        <%= check_box_tag :pallete2 %>
+        <%= label_tag :pallete2, "パレット2" %>
     </div>
     <div id="chart3" class="color-pallete">
-    	<%= check_box_tag :pallete3 %>
-		<%= label_tag :pallete3, "パレット3" %>
+        <%= check_box_tag :pallete3 %>
+        <%= label_tag :pallete3, "パレット3" %>
     </div>
     <div id="chart4" class="color-pallete">
-    	<%= check_box_tag :pallete4 %>
-		<%= label_tag :pallete4, "パレット4" %>
+        <%= check_box_tag :pallete4 %>
+        <%= label_tag :pallete4, "パレット4" %>
     </div>
     <div id="chart5" class="color-pallete">
-    	<%= check_box_tag :pallete5 %>
-		<%= label_tag :pallete5, "パレット5" %>
+        <%= check_box_tag :pallete5 %>
+        <%= label_tag :pallete5, "パレット5" %>
     </div>
 </div>
 
-
 <%# 登録カラーリスト %>
 <div class="main-bg">
-    <div>
-        <% if user_signed_in? %>
-            <% if current_user.admin == true %>
-                <%=link_to 'Add Color(Only Adiministraitor)', colors_path %>
-            <% end %>
-        <% end %>
-    </div>
-
     <div class="color-list">
         <% @colors.zip(@makers) do |color,maker| %>
             <div class="color-item">
@@ -42,7 +33,7 @@
                      <%= render partial: 'likes/like', locals: { color: color } %>
                     </div>
                 </div>
-                <div>
+                <div class="color-name">
                     <p class="name-text"><%= color.color_name %></p>
                     <p class="maker-text"><%= maker.maker_name %></p>
                 </div>
