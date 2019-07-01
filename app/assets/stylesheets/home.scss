@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.main-bg{
+    margin-top: 40px;
+}
+
 #chart{
     width: 600px;
     height: 300px;
@@ -16,10 +20,11 @@
 .color-list{
         display: flex;
         flex-wrap: wrap;
-        width: 1000px;
+        width: 500px;
         margin: 0 auto;
         
         .color-item{
             width: 100px;
+            margin-bottom: 15px;
         }
     }
