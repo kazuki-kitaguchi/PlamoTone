@@ -1,5 +1,28 @@
 <h1>マイカラーリスト</h1>
 <%# パレットリスト一覧を表示する %>
+<div id="chart">
+    <div id="chart1" class="color-pallete">
+        <%= check_box_tag :pallete1 %>
+        <%= label_tag :pallete1, "パレット1" %>
+    </div>
+    <div id="chart2" class="color-pallete">
+        <%= check_box_tag :pallete2 %>
+        <%= label_tag :pallete2, "パレット2" %>
+    </div>
+    <div id="chart3" class="color-pallete">
+        <%= check_box_tag :pallete3 %>
+        <%= label_tag :pallete3, "パレット3" %>
+    </div>
+    <div id="chart4" class="color-pallete">
+        <%= check_box_tag :pallete4 %>
+        <%= label_tag :pallete4, "パレット4" %>
+    </div>
+    <div id="chart5" class="color-pallete">
+        <%= check_box_tag :pallete5 %>
+        <%= label_tag :pallete5, "パレット5" %>
+    </div>
+</div>
+
 <div class="color-list">
     <% @likes.each do |like| %>
         <div>
@@ -7,6 +30,14 @@
             <div>
                 <%= link_to like.color_name, color_path(like.color_id) %>
             </div>
+            <div>
+                <%= button_to user_path(current_user.id, sel_id: like.color_id), id: "sel-#{like.color_id}", remote: true do %>
+                    <div>Select</div>
+                 <% end %>
+                </div>
         </div>
     <% end %>
 </div>
+<% if current_user.admin == true %>
+	<%=link_to 'Add Color(Only Adiministraitor)', colors_path %>
+<% end %>

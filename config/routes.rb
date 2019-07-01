@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   get 'home/index'
   post 'home/index'
+  post 'users/:id',to: 'users#show'
   get 'home/search'
   root 'home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
