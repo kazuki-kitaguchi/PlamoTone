@@ -1,3 +1,20 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.mycolor-list{
+	width: 1000px;
+	margin: 0 auto;
+	.mycolor-item{
+		margin: 0;
+		.mycolor-thumbnail{
+			width: 100px;
+			height: 100px;
+		}
+		.mycolor-name{
+			width: 100px;
+			height: 50px;
+			font-size: 12px;
+		}
+	}
+}
