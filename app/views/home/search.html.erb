@@ -1,60 +1,31 @@
-<%# カラー比較部分 %>
-<div id="chart">
-    <div id="left-chart" class="color-pallete" style="background-color:#<%= @left_chart %>;">
-    	<%= check_box_tag :sample1 %>
-		<%= label_tag :sample1, "パレット１" %>
-    </div>
-    <div id="right-chart" class="color-pallete" style="background-color:#<%= @right_chart %>;">
-    	パレット２
-    </div>
-    <div class="color-pallete" style="background-color:#111">
-    	パレット３
-    </div>
-    <div class="color-pallete" style="background-color:#999">
-    	パレット４
-    </div>
-    <div class="color-pallete" style="background-color:#ddd">
-    	パレット５
-    </div>
-</div>
-
 <%# 登録カラーリスト %>
 <% if @message == nil %>
-<div class="main-bg">
-    <div>
-        <% if user_signed_in? %>
-            <% if current_user.admin == true %>
-                <%=link_to 'Add Color(Only Adiministraitor)', colors_path %>
-            <% end %>
-        <% end %>
-    </div>
-
-    <div class="color-list">
-        <% @colors.zip(@makers) do |color,maker| %>
-            <div class="color-item">
-                <div style="width:100px;height:100px;background-color:#<%= color.color_code %>;">
-                    <%# お気に入り登録・解除ボタン %>
-                    <div id="like-of-<%= color.id %>" class="text-left">
-                     <%= render partial: 'likes/like', locals: { color: color } %>
-                    </div>    
-                </div>
-                <div>
-                    <p class="name-text"><%= color.color_name %></p>
-                    <p class="maker-text"><%= maker.maker_name %></p>
-                </div>
-                <div>
-                    <%= link_to 'Left',home_index_path(:page => @colors.current_page,:param_l => color.color_code,:param_r => @right_chart) %>
-                    <%= link_to 'Right',home_index_path(:page => @colors.current_page,:param_l => @left_chart,:param_r => color.color_code) %>
-                    <%# link_to 'Select',home_index_path(:page => @colors.current_page,:param_l => @left_chart,:param_r => color.color_code) %>
+    <div class="main-bg">
+        <div class="color-list">
+            <% @colors.zip(@makers) do |color,maker| %>
+                <div class="color-item">
+                    <div style="width:100px;height:100px;background-color:#<%= color.color_code %>;">
+                        <%# お気に入り登録・解除ボタン %>
+                        <div id="like-of-<%= color.id %>" class="text-left">
+                         <%= render partial: 'likes/like', locals: { color: color } %>
+                        </div>
                     </div>
-                
-            </div>
-        <% end %>
+                    <div>
+                        <p class="name-text"><%= color.color_name %></p>
+                        <p class="maker-text"><%= maker.maker_name %></p>
+                    </div>
+                    <div>
+                        <%= button_to home_search_path(sel_id: color.id), id: "sel-#{color.id}", remote: true do %>
+                            <div>Select</div>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <div class="d-inline-block">
+            <%= paginate @colors -%>
+        </div>
     </div>
-    <div class="d-inline-block">
-        <%= paginate @colors -%>    
-    </div>
-</div>
 <% else %>
-	<p class="search-none"><%= @message %></p>
+    <p class="search-none"><%= @message %></p>
 <% end %>
