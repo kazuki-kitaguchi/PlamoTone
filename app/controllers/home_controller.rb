@@ -4,7 +4,6 @@ class HomeController < ApplicationController
   def index
     @colors = Color.page(params[:page]).per(PER)
     @makers = Maker.page(params[:page]).per(PER).joins(:colors).select(:color_name,:maker_name)
-    view
   end
 
   def search
@@ -15,18 +14,9 @@ class HomeController < ApplicationController
     else
       @message =  nil
     end
-    preview
   end
 
   private
-    def view
-      @left_chart = params[:param_l]
-      @right_chart = params[:param_r]
-    end
-    def preview
-      @left_chart = params[:q][:param_l]
-      @right_chart = params[:q][:param_r]
-    end
     def set_color
       if params[:sel_id] != nil
         @color = Color.find(params[:sel_id])
