@@ -1,12 +1,14 @@
-.login-form{
+.login-form,
+.edit-form{
 	border: 1px solid #666;
 	width: 300px;
 	margin: 30px auto;
 	padding: 30px 0;
 	input{
-	margin: 10px;
-	border: none;
-	border-bottom: 1px solid #aaa;
+		margin: 10px;
+		border: none;
+		border-bottom: 1px solid #aaa;
+		background-color: #F6F8FA;
 	}
 	.submit{
 		border: none;
