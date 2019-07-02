@@ -22,30 +22,45 @@
     </div>
 </div> -->
 
-<%# 登録カラーリスト %>
-<div class="main-bg">
-    <div class="color-list">
-        <% @colors.zip(@makers) do |color,maker| %>
-            <div class="color-item">
-                <div style="width:100px;height:100px;background-color:#<%= color.color_code %>;">
-                    <%# お気に入り登録・解除ボタン %>
-                    <div id="like-of-<%= color.id %>" class="text-left">
-                     <%= render partial: 'likes/like', locals: { color: color } %>
+<% if user_signed_in? %>
+    <div class="main-bg">
+        <div class="color-list">
+            <% @colors.zip(@makers) do |color,maker| %>
+                <div class="color-item">
+                    <div style="width:100px;height:100px;background-color:#<%= color.color_code %>;">
+                        <%# お気に入り登録・解除ボタン %>
+                        <div id="like-of-<%= color.id %>" class="text-left">
+                         <%= render partial: 'likes/like', locals: { color: color } %>
+                        </div>
                     </div>
+                    <div class="color-name">
+                        <p class="name-text"><%= color.color_name %></p>
+                        <p class="maker-text"><%= maker.maker_name %></p>
+                    </div>
+                    <!-- <div>
+                        <%= button_to home_index_path(sel_id: color.id), id: "sel-#{color.id}", remote: true do %>
+                            <div>Select</div>
+                        <% end %>
+                    </div> -->
                 </div>
-                <div class="color-name">
-                    <p class="name-text"><%= color.color_name %></p>
-                    <p class="maker-text"><%= maker.maker_name %></p>
-                </div>
-                <!-- <div>
-                	<%= button_to home_index_path(sel_id: color.id), id: "sel-#{color.id}", remote: true do %>
-                        <div>Select</div>
-                    <% end %>
-                </div> -->
+            <% end %>
+        </div>
+        <div class="d-inline-block">
+            <%= paginate @colors -%>
+        </div>
+    </div>
+<% else %>
+    <div class="main-bg-notlogin">
+        <div class="bg-img">
+            <div class="plamotone-intro text-left">
+                <h1 class="plamotone-desc-ttl">
+                    What is "PlamoTone" ?
+                </h1>
+                <p class="plamotone-desc text-left">
+                    模型に特化したカラーチャートサイトです。<br>
+                    お気に入りのカラーや気になって購入していないカラーなどをマイカラーとしてお気に入り登録し、マイカラーの比較が可能なサービスです。</p>
             </div>
-        <% end %>
+        </div>
     </div>
-    <div class="d-inline-block">
-        <%= paginate @colors -%>
-    </div>
-</div>
+<% end %>
+<%# 登録カラーリスト %>

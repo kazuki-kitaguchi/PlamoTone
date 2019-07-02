@@ -28,3 +28,34 @@
             margin-bottom: 15px;
         }
     }
+
+
+.main-bg-notlogin{
+    .bg-img{
+        width: auto;
+        height: 800px;
+        background-size: cover;
+        background-image: url("/images/top_bgimg.jpg");
+        padding-bottom: 40px;
+        position: relative;
+
+        .plamotone-intro{
+            background-color: #fff;
+            opacity:0.6;
+            position: absolute;
+            top: 200px;
+            color: #000;
+
+            .plamotone-desc-ttl{
+                display: inline-block;
+                padding: 10px 50px;
+            }
+        
+            .plamotone-desc{
+                padding: 50px;
+                opacity: 1.0;
+                font-size: 15px;
+            }
+        }
+    }
+}
