@@ -32,7 +32,7 @@
                     <% end %>
                 </div>
                 <div class="like-del">
-                    <%= link_to '×', user_like_path(current_user.id, color_id: like.color_id,flag_mycolor: "true"), method: :delete,remote: true, data: { confirm: 'Are you sure?' } %>
+                    <%= link_to '×', user_like_path(current_user.id, color_id: like.color_id,flag_mycolor: "true"), method: :delete,remote: true, data: { confirm: 'マイカラーから削除します。よろしいですか?' } %>
                 </div>
             </div>
             <div class="mycolor-name">
