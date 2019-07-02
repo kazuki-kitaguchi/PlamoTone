@@ -8,8 +8,31 @@
 	.mycolor-item{
 		margin: 0;
 		.mycolor-thumbnail{
+			position: relative;
 			width: 100px;
 			height: 100px;
+			.mycolor-select{
+				a{
+					width: 100px;
+					height: 100px;
+					display: inline-block;
+				}
+			}
+			.like-del{
+				position: absolute;
+				border: 1px solid #000;
+				background-color: #FFF;
+				top: 0;
+				right: 0;
+				width: 30px;
+				height: 30px;
+				a{
+					font-size: 30px;
+					margin: 0;
+					padding: 0;
+					line-height: 1.5rem;
+				}
+			}
 		}
 		.mycolor-name{
 			width: 100px;
