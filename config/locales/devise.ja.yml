@@ -1,4 +1,27 @@
 ja:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "は既に使用されています。"
+              blank: "が入力されていません。"
+              too_short: "は%{count}文字以上に設定して下さい。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+              invalid: "は有効でありません。"
+            password:
+              taken: "は既に使用されています。"
+              blank: "が入力されていません。"
+              too_short: "は%{count}文字以上に設定して下さい。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+              invalid: "は有効でありません。"
+              confirmation: "が内容とあっていません。"
+            current_password:
+              blank: "が入力されていません。"
+            password_confirmation:
+              confirmation: "が内容とあっていません。"
+
   errors:
     messages:
       not_found: "は見つかりませんでした"
