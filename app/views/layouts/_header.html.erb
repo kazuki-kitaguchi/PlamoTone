@@ -16,7 +16,7 @@
     <div id="nav" class="col-4 align-self-center">
         <ul class="text-right">
             <% if user_signed_in? %>
-                <li><%= link_to current_user.email, user_path(current_user.id) %></li>
+                <li><%= link_to 'マイカラー', user_path(current_user.id) %></li>
                 <li><%= link_to 'アカウント設定', edit_user_registration_path %></li>
                 <li>
                     <div class="header-button text-center">
