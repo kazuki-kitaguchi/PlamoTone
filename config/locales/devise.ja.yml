@@ -21,7 +21,22 @@ ja:
               blank: "が入力されていません。"
             password_confirmation:
               confirmation: "が新しいパスワードとあっていません。"
-
+        color:
+          attributes:
+            color_name:
+              blank: "が入力されていません。"
+            color_code:
+              wrong_length: "規定の文字数ではありません。"
+              invalid: "有効ではありません。"
+              blank: "が入力されていません。"
+            maker:
+              required: "データが必要です"
+        maker:
+          attributes:
+            maker_name:
+              blank: "が入力されていません。"
+      messages:
+        record_invalid: "バリデーションに失敗しました。"
   errors:
     messages:
       not_found: "は見つかりませんでした"

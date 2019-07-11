@@ -16,5 +16,14 @@ module Plamotone
     # the framework and any gems in your application.
 
     config.i18n.default_locale = :ja
+
+    config.generators do |g|
+		g.test_framework :rspec,
+			helper_specs: false,
+			routing_specs: false
+        g.fixture_replacement :factory_bot, dir: "spec/factories"
+	end
   end
 end
+
+
