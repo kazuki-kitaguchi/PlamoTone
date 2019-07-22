@@ -21,6 +21,7 @@ class UsersController < ApplicationController
         @like = Like.joins(:color).where(user_id: current_user.id).where(color_id: params[:sel_id]).select("likes.*,colors.*").first
         @sel_color_id = "#sel-#{@like.color_id}"
         @sel_color_code = "##{@like.color_code}"
+        @sel_color_name = "#{@like.color_name}"
       end
   end
 end
