@@ -5,7 +5,7 @@
         <% end %>
     <% else %>
         <%= button_to color_likes_path(color), id: "like-button-#{color.id}", remote: true do %>
-            <div class = "like-icon">♡</div>
+            <div class = "unlike-icon">♡</div>
         <% end %>
     <% end %>
 <% end %>
