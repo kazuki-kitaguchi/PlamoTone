@@ -9,7 +9,7 @@
           <td><%= maker.maker_name %></td>
           <td><%= link_to '詳細', color %></td>
           <td><%= link_to '編集', edit_color_path(color) %></td>
-          <td><%= link_to '削除', color, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to '削除', color, method: :delete, data: { confirm: 'カラーリストから削除します。よろしいですか?' } %></td>
         </tr>
       <% end %>
     </tbody>
