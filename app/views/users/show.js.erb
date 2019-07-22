@@ -1,24 +1,8 @@
-if ($("#pallete1").prop('checked') ){
-	$("#chart1").css("background-color","<%= @sel_color_code %>")
-	$("#pallete1").prop('checked',false)
-}
-
-if ($("#pallete2").prop('checked') ){
-	$("#chart2").css("background-color","<%= @sel_color_code %>")
-	$("#pallete2").prop('checked',false)
-}
-
-if ($("#pallete3").prop('checked') ){
-	$("#chart3").css("background-color","<%= @sel_color_code %>")
-	$("#pallete3").prop('checked',false)
-}
-
-if ($("#pallete4").prop('checked') ){
-	$("#chart4").css("background-color","<%= @sel_color_code %>")
-	$("#pallete4").prop('checked',false)
-}
-
-if ($("#pallete5").prop('checked') ){
-	$("#chart5").css("background-color","<%= @sel_color_code %>")
-	$("#pallete5").prop('checked',false)
+for (var n = 1; n<=5; n++){
+	if ($("#pallete"+n).prop('checked') ){
+		$("#chart"+n).css("background-color","<%= @sel_color_code %>")
+		$(".color-name"+n).append("<p><%= @sel_color_name %></p>")
+		$(".color-name"+n).css("color","#aaaaaa")
+		$("#pallete"+n).prop('checked',false)
+	}
 }
