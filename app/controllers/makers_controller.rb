@@ -1,5 +1,6 @@
 class MakersController < ApplicationController
   before_action :set_maker, only: [:show, :edit, :update, :destroy]
+  before_action :check_admin_user
 
   # GET /makers
   # GET /makers.json
@@ -28,7 +29,7 @@ class MakersController < ApplicationController
 
     respond_to do |format|
       if @maker.save
-        format.html { redirect_to @maker, notice: 'Maker was successfully created.' }
+        format.html { redirect_to @maker, notice: '下記のメーカーを正常に登録しました。' }
         format.json { render :show, status: :created, location: @maker }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class MakersController < ApplicationController
   def update
     respond_to do |format|
       if @maker.update(maker_params)
-        format.html { redirect_to @maker, notice: 'Maker was successfully updated.' }
+        format.html { redirect_to @maker, notice: 'メーカーを更新しました。' }
         format.json { render :show, status: :ok, location: @maker }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class MakersController < ApplicationController
   def destroy
     @maker.destroy
     respond_to do |format|
-      format.html { redirect_to makers_url, notice: 'Maker was successfully destroyed.' }
+      format.html { redirect_to makers_url, notice: '登録されていたメーカーを正常に削除しました。' }
       format.json { head :no_content }
     end
   end
@@ -70,5 +71,11 @@ class MakersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def maker_params
       params.require(:maker).permit(:maker_name)
+    end
+
+    def check_admin_user
+      if current_user.admin == false
+        redirect_to home_index_path
+      end
     end
 end
