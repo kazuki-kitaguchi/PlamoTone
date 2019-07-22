@@ -12,7 +12,7 @@ class LikesController < ApplicationController
     @colors = Color.all
     if @flag == "true"
         respond_to do |format|
-          format.html { redirect_to user_path(current_user.id) }
+          format.html { redirect_to user_path(current_user.id), notice: 'マイカラーから削除しました。' }
         end
     end
   end
