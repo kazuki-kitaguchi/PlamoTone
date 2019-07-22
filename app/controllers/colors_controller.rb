@@ -1,6 +1,8 @@
 class ColorsController < ApplicationController
   before_action :set_color, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :check_admin_user, except: :show
+
 
   # GET /colors
   # GET /colors.json
@@ -32,7 +34,7 @@ class ColorsController < ApplicationController
 
     respond_to do |format|
       if @color.save
-        format.html { redirect_to @color, notice: 'Color was successfully created.' }
+        format.html { redirect_to @color, notice: '下記のカラーを正常に登録しました。' }
         format.json { render :show, status: :created, location: @color }
       else
         format.html { render :new }
@@ -46,7 +48,7 @@ class ColorsController < ApplicationController
   def update
     respond_to do |format|
       if @color.update(color_params)
-        format.html { redirect_to @color, notice: 'Color was successfully updated.' }
+        format.html { redirect_to @color, notice: 'カラーを更新しました。' }
         format.json { render :show, status: :ok, location: @color }
       else
         format.html { render :edit }
@@ -60,7 +62,7 @@ class ColorsController < ApplicationController
   def destroy
     @color.destroy
     respond_to do |format|
-      format.html { redirect_to colors_url, notice: 'Color was successfully destroyed.' }
+      format.html { redirect_to colors_url, notice: '登録されていたカラーを正常に削除しました。' }
       format.json { head :no_content }
     end
   end
@@ -74,5 +76,11 @@ class ColorsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def color_params
       params.require(:color).permit(:color_name, :color_code,:maker_id)
+    end
+
+    def check_admin_user
+      if current_user.admin == false
+        redirect_to home_index_path
+      end
     end
 end
