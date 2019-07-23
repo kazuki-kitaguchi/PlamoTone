@@ -1,0 +1,54 @@
+AllCops:
+  # 除外するディレクトリ（自動生成されたファイル）
+  # デフォルト設定にある"vendor/**/*"が無効化されないように記述
+  TargetRubyVersion: 2.6
+  Exclude:
+    - bin/*
+    - db/schema.rb
+    - db/migrate/*
+    - vendor/**/*
+  # Rails向けのRails copsを実行。"rubocop -R"と同じ
+  Rails:
+    Enabled: true
+
+Rails:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+LineLength:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 20
+
+FormatString:
+  EnforcedStyle: percent
+
+NumericLiterals:
+  Enabled: false
+
+RedundantReturn:
+  AllowMultipleReturnValues: true
+
+DotPosition:
+  EnforcedStyle: trailing
