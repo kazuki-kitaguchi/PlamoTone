@@ -1,1 +1,1 @@
-json.array! @makers, partial: "makers/maker", as: :maker
+json.array! @makers, partial: 'makers/maker', as: :maker

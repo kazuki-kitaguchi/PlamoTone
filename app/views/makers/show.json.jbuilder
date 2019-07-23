@@ -1,1 +1,1 @@
-json.partial! "makers/maker", maker: @maker
+json.partial! 'makers/maker', maker: @maker

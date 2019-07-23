@@ -1,1 +1,1 @@
-json.partial! "colors/color", color: @color
+json.partial! 'colors/color', color: @color

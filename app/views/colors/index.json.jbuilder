@@ -1,1 +1,1 @@
-json.array! @colors, partial: "colors/color", as: :color
+json.array! @colors, partial: 'colors/color', as: :color

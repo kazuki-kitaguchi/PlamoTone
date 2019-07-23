@@ -10,10 +10,10 @@ class LikesController < ApplicationController
     like = current_user.likes.find_by(color_id: params[:color_id])
     like.destroy
     @colors = Color.all
-    if @flag == "true"
-        respond_to do |format|
-          format.html { redirect_to user_path(current_user.id), notice: 'マイカラーから削除しました。' }
-        end
+    return unless @flag == 'true'
+
+    respond_to do |format|
+      format.html { redirect_to user_path(current_user.id), notice: 'マイカラーから削除しました。' }
     end
   end
 

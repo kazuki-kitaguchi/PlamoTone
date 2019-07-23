@@ -63,19 +63,18 @@ class MakersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_maker
-      @maker = Maker.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def maker_params
-      params.require(:maker).permit(:maker_name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_maker
+    @maker = Maker.find(params[:id])
+  end
 
-    def check_admin_user
-      if current_user.admin == false
-        redirect_to home_index_path
-      end
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def maker_params
+    params.require(:maker).permit(:maker_name)
+  end
+
+  def check_admin_user
+    redirect_to home_index_path if current_user.admin == false
+  end
 end
