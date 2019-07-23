@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users, :only => [:index, :show] do
+  resources :users, only: [:index, :show] do
     resources :likes, only: :destroy
   end
   resources :makers
-  resources :colors  do
+  resources :colors do
     resources :likes, only: [:create, :destroy]
   end
   get 'home/index'

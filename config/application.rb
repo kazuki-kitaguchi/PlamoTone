@@ -18,12 +18,10 @@ module Plamotone
     config.i18n.default_locale = :ja
 
     config.generators do |g|
-		g.test_framework :rspec,
-			helper_specs: false,
-			routing_specs: false
-        g.fixture_replacement :factory_bot, dir: "spec/factories"
-	end
+      g.test_framework :rspec,
+                       helper_specs: false,
+                       routing_specs: false
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
+    end
   end
 end
-
-
