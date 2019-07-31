@@ -8,9 +8,6 @@ AllCops:
     - db/migrate/*
     - vendor/**/*
     - Gemfile
-  # Rails向けのRails copsを実行。"rubocop -R"と同じ
-  Rails:
-    Enabled: true
 
 Rails:
   Enabled: true
@@ -47,6 +44,9 @@ Metrics/ModuleLength:
 
 Metrics/AbcSize:
   Max: 20
+
+Metrics/BlockLength:
+  Max: 50
 
 FormatString:
   EnforcedStyle: percent
