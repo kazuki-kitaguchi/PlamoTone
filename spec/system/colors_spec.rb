@@ -2,13 +2,17 @@ require 'rails_helper'
 
 RSpec.describe 'Colors', type: :system do
   describe 'ログインしていないとき' do
+    before do
+      visit home_index_path
+    end
+
     it 'マイカラーに登録するボタンが表示されていないこと' do
+      expect(page).to have_no_selector('.unlike-icon')
+      expect(page).to have_no_selector('.like-icon')
     end
 
     it 'マイカラーへのリンクが表示されていないこと' do
-    end
-
-    it 'マイカラーのページへ遷移しようとするとログイン画面に遷移すること' do
+      expect(page).to have_no_link 'マイカラー'
     end
   end
 
@@ -24,9 +28,11 @@ RSpec.describe 'Colors', type: :system do
     before do
       visit home_index_path
       click_link '登録/ログイン'
+      find('.login-form')
       fill_in 'user_email', with: 'test@gmail.com'
       fill_in 'user_password', with: 'testps'
       click_button 'ログイン'
+
       find("#like-button-#{color1.id}").click
       find("#like-button-#{color2.id}").click
       find("#like-button-#{color3.id}").click
@@ -37,40 +43,62 @@ RSpec.describe 'Colors', type: :system do
     it '選択したパレットにカラーを表示する', js: true do
       click_link 'マイカラー'
 
-      check 'パレット1'
-      find("#sel-#{color1.id}").click
-      find('#chart1').native
-      color1 = find('#chart1').native.css_value('background-color')
-
-      check 'パレット2'
-      find("#sel-#{color2.id}").click
-      find('#chart2').native
-      color2 = find('#chart2').native.css_value('background-color')
-
       check 'パレット3'
       find("#sel-#{color3.id}").click
-      find('#chart3').native
+      find('#chart1').native
       color3 = find('#chart3').native.css_value('background-color')
+      expect(color3).to eq('rgba(255, 0, 0, 1)')
 
       check 'パレット4'
       find("#sel-#{color4.id}").click
-      find('#chart4').native
+      find('#chart3').native
       color4 = find('#chart4').native.css_value('background-color')
+      expect(color4).to eq('rgba(0, 255, 0, 1)')
 
       check 'パレット5'
       find("#sel-#{color5.id}").click
       find('#chart5').native
       color5 = find('#chart5').native.css_value('background-color')
-
-      expect(color1).to eq('rgba(0, 0, 0, 1)')
-      expect(color2).to eq('rgba(255, 255, 255, 1)')
-      expect(color3).to eq('rgba(255, 0, 0, 1)')
-      expect(color4).to eq('rgba(0, 255, 0, 1)')
       expect(color5).to eq('rgba(0, 0, 255, 1)')
-      page.save_screenshot('mycolor.png')
+    end
+  end
+
+  describe 'Adminユーザーログイン時' do
+    before do
+      visit home_index_path
+      create(:user, admin: true)
+      click_link '登録/ログイン'
+      fill_in 'user_email', with: 'test@gmail.com'
+      fill_in 'user_password', with: 'testps'
+      click_button 'ログイン'
     end
 
-    it 'マイカラーからカラーを削除できること' do
+    it '新規カラー登録' do
+      create(:maker)
+      visit new_color_path
+      fill_in 'color_color_name', with: 'テストブラック'
+      fill_in 'color_color_code', with: '000000'
+      select 'テストメーカー', from: 'color_maker_id'
+      click_button 'Create Color'
+      expect(page).to have_selector '.notice', text: '下記のカラーを正常に登録しました。'
+    end
+
+    it 'カラー編集' do
+      create(:color)
+      visit edit_color_path(1)
+      fill_in 'color_color_name', with: 'テストライトグレー'
+      fill_in 'color_color_code', with: 'eeeeee'
+      select 'テストメーカー', from: 'color_maker_id'
+      click_button 'Update Color'
+      expect(page).to have_selector '.notice', text: 'カラーを更新しました。'
+    end
+
+    it 'カラー削除', js: true do
+      create(:color)
+      visit colors_path
+      click_link '削除'
+      page.driver.browser.switch_to.alert.accept
+      expect(page).to have_selector '.notice', text: '登録されていたカラーを正常に削除しました。'
     end
   end
 end
