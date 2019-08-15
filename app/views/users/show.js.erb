@@ -1,6 +1,7 @@
 for (var n = 1; n<=5; n++){
 	if ($("#pallete"+n).prop('checked') ){
 		$("#chart"+n).css("background-color","<%= @sel_color_code %>")
+		$(".color-name"+n).empty()
 		$(".color-name"+n).append("<p><%= @sel_color_name %></p>")
 		$(".color-name"+n).css("color","#aaaaaa")
 		$("#pallete"+n).prop('checked',false)
