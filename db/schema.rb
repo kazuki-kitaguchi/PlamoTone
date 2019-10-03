@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_21_082617) do
+ActiveRecord::Schema.define(version: 2019_10_03_132722) do
 
   create_table "colors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "color_name"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_06_21_082617) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "maker_id"
+    t.string "color_number"
     t.index ["maker_id"], name: "index_colors_on_maker_id"
   end
 

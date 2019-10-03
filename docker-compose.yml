@@ -8,7 +8,7 @@ services:
       MYSQL_USER: kazuki
       MYSQL_PASSWORD: zetaz006
     ports:
-      - "3306:3306" # ホストからゲストへポートフォワード
+      - "3300:3300" # ホストからゲストへポートフォワード
   web:
     build:
       context: .

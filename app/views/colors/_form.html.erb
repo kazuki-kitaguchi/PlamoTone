@@ -12,6 +12,9 @@
 <div class="color-reg-form">
   <%= form_with(model: color, local: true) do |form| %>
     <div class="field">
+      <%= form.text_field :color_number, placeholder: "製品コード" %>
+    </div>
+    <div class="field">
       <%= form.text_field :color_name, placeholder: "カラー名" %>
     </div>
 
