@@ -50,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: plamotone_production
-  username: plamotone
-  password: <%= ENV['PLAMOTONE_DATABASE_PASSWORD'] %>
+  database: heroku_e1cbad6990a97f5?reconnect
+  username: b6bc1f0e418a5c
+  password: zetaz006
