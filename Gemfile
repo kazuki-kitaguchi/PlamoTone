@@ -11,6 +11,9 @@ gem 'devise-i18n-views'
 gem "jquery-rails"
 gem 'bootstrap'
 
+gem 'config'
+gem 'deep_merge'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use mysql as the database for Active Record
