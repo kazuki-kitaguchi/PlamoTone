@@ -17,6 +17,8 @@ module Plamotone
 
     config.i18n.default_locale = :ja
 
+    config.assets.initialize_on_precompile = false
+
     config.generators do |g|
       g.test_framework :rspec,
                        helper_specs: false,
