@@ -42,6 +42,7 @@ test:
 # available as an environment variable. For example:
 #
 #   DATABASE_URL="mysql2://myuser:mypass@localhost/somedatabase"
+# DATABASE_URL=mysql2://b761c1fce39b1f:4f0683da@us-cdbr-iron-east-05.cleardb.net/heroku_8b2f9b232903954?reconnect=true
 #
 # You can use this database configuration with:
 #
@@ -49,7 +50,8 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: plamotone_production
-  username: plamotone
-  password: <%= ENV['PLAMOTONE_DATABASE_PASSWORD'] %>
+  # <<: *default
+  # database: plamotone_production
+  # username: plamotone
+  # password: <%= ENV['PLAMOTONE_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
