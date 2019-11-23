@@ -1,5 +1,8 @@
-<p>Welcome <%= @email %>!</p>
+<p> <%= @email %> 様</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>この度は、PlamoToneへの利用登録ありがとうございます。</p>
+<p>早速ですが、お届け先のメールアドレスにお間違いがなければ、下記のリンクへアクセスし、認証を完了させてください。</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>もし、このメールに覚えがない方は、お手数ですがご返信をお願い致します。</p>
+
+<p><%= link_to '認証はこちらから', confirmation_url(@resource, confirmation_token: @token) %></p>
