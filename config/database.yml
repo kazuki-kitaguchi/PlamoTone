@@ -50,8 +50,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  # <<: *default
-  # database: plamotone_production
-  # username: plamotone
-  # password: <%= ENV['PLAMOTONE_DATABASE_PASSWORD'] %>
+
+
+  <<: *default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
   url: <%= ENV['DATABASE_URL'] %>
