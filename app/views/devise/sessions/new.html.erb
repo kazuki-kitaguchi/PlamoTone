@@ -24,12 +24,12 @@
 <%# テストユーザーとしてのログイン機能 %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
-        <p>お試しログインは管理者ユーザーとして<br>ログインします。</p>
-        <%= f.hidden_field :email, autofocus: true, value: "test@gmail.com", autocomplete: "email" %>
+        <p>お試しログインは一般ユーザーとして<br>ログインします。</p>
+        <%= f.hidden_field :email, autofocus: true, value: ENV['GUEST_ADDRESS'], autocomplete: "email" %>
       </div>
     
       <div class="field">
-        <%= f.hidden_field :password, value: "plamotone", autocomplete: "current-password" %>
+        <%= f.hidden_field :password, value: ENV['GUEST_PASSWORD'], autocomplete: "current-password" %>
       </div>
     
       <div class="actions">
