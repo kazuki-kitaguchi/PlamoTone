@@ -8,7 +8,7 @@
 
 # admin user
 User.create( email: ENV['MAIL_ADDRESS'], password: ENV['MAIL_ACCOUNT_PASSWORD'], admin: true )
-User.create( email: ENV['GUEST_ADDRESS'], password: ENV['GUEST_PASSWORD'], admin: false )
+User.create( email: ENV['GUEST_ADDRESS'], password: ENV['GUEST_PASSWORD'], guest: true )
 
 # Makers
 Maker.create( id: 1, maker_name: 'クレオス')

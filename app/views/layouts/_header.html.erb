@@ -17,7 +17,7 @@
         <ul class="text-right">
             <% if user_signed_in? %>
                 <li><%= link_to 'マイカラー', user_path(current_user.id) %></li>
-                <% if current_user.email == 'higeohogehoge@gmail.com' %>
+                <% if current_user.guest == false %>
                        <li><%= link_to 'アカウント設定', edit_user_registration_path %></li>
                 <% end %>
                 <li>
