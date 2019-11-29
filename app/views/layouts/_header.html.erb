@@ -17,7 +17,9 @@
         <ul class="text-right">
             <% if user_signed_in? %>
                 <li><%= link_to 'マイカラー', user_path(current_user.id) %></li>
-                <li><%= link_to 'アカウント設定', edit_user_registration_path %></li>
+                <% if current_user.email == 'higeohogehoge@gmail.com' %>
+                       <li><%= link_to 'アカウント設定', edit_user_registration_path %></li>
+                <% end %>
                 <li>
                     <div class="header-button text-center">
                         <%= link_to 'ログアウト', destroy_user_session_path, :method => :delete %>
